@@ -6,29 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class AddStatusToTasksTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->string('status');
-            $table->char('status', 10);
-        });
+            $table->string('status', 10);
+              });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::table('tasks', function (Blueprint $table) {
             $table->dropColumn('status');
-            $table->char('status', 10);
         });
     }
 }
