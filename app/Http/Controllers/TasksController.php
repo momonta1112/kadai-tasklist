@@ -59,9 +59,11 @@ class TasksController extends Controller
     {
         $task = Task::findOrFail($id);
         
-        return view('tasks.show', [
-            'task' => $task,
+        if (\Auth::id() === $task->user_id) {
+            return view('tasks.show', [
+                'task' => $task,
             ]);
+        }
     }
 
     // getでtasks/（任意のid）/editにアクセスされた場合の「更新画面表示処理」
@@ -69,9 +71,11 @@ class TasksController extends Controller
     {
         $task = Task::findOrFail($id);
         
-        return view('tasks.edit', [
-            'task' => $task,
+        if (\Auth::id() === $task->user_id) {
+            return view('tasks.edit', [
+                'task' => $task,
             ]);
+        }
     }
 
     // putまたはpatchでtasks/（任意のid）にアクセスされた場合の「更新処理」
@@ -84,9 +88,11 @@ class TasksController extends Controller
             
         $task = Task::findOrFail($id);
         
+        if (\Auth::id() === $task->user_id) {
         $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
+        }
         
         return redirect('/');
     }
