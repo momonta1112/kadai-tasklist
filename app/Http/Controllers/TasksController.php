@@ -51,6 +51,7 @@ class TasksController extends Controller
             'content' => $request->content,
             ]);
             
+            return redirect('/');
     }
 
      // getでtasks/（任意のid）にアクセスされた場合の「取得表示処理」
