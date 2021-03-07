@@ -22,7 +22,7 @@ class TasksController extends Controller
                 ];
             }
        
-        return redirect('/');
+       return view('welcome', $data);
         
     }
 
