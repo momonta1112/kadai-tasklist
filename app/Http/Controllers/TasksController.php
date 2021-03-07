@@ -30,12 +30,10 @@ class TasksController extends Controller
     public function create()
     {
         $task = new Task;
-        if (\Auth::id() === $task->user_id) {
+        
             return view('tasks.create', [
                 'task' => $task,
             ]);
-        }
-        return redirect('/');
     }
 
     // postでtasks/にアクセスされた場合の「新規登録処理」
