@@ -51,7 +51,6 @@ class TasksController extends Controller
             'content' => $request->content,
             ]);
             
-        return redirect('/');
     }
 
      // getでtasks/（任意のid）にアクセスされた場合の「取得表示処理」
@@ -64,6 +63,7 @@ class TasksController extends Controller
                 'task' => $task,
             ]);
         }
+        return redirect('/');
     }
 
     // getでtasks/（任意のid）/editにアクセスされた場合の「更新画面表示処理」
@@ -76,6 +76,7 @@ class TasksController extends Controller
                 'task' => $task,
             ]);
         }
+        return redirect('/');
     }
 
     // putまたはpatchでtasks/（任意のid）にアクセスされた場合の「更新処理」
